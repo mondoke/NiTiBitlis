@@ -6,19 +6,24 @@ import pyperclip
 entrada = pyperclip.paste()
 salida = ''
 vocales = ['a', 'e', 'o', 'u']
-def convertir(may):
+vocalesTilde = ['á', 'é', 'ó', 'ú']
+
+#Devuelve la letra a la que quiero convertir, respetando la mayúscula
+def convertir(may, letra):
     if may:
-        return 'I'
+        return letra.upper()
     else:
-        return 'i'
+        return letra.lower()
 
 for i in range(len(entrada)):
     char = entrada[i]       #Agarra el caracter
     mayus = char.isupper()  #Ver si es mayúscula
     #Cambiar:
-    if entrada[i-1].lower() != 'q' or char.lower() !='u':
+    if entrada[i-1].lower() != 'q' or char.lower() !='u': #Esto es para las QUE pero no los Qatar
         if char.lower() in vocales:
-            salida += convertir(mayus)
+            salida += convertir(mayus, 'i')
+        elif char.lower() in vocalesTilde:
+            salida += convertir(mayus, 'í')
         else:
             salida += char
     else:
