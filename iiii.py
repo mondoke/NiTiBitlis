@@ -25,4 +25,4 @@ for i in range(len(entrada)):
         salida +=char
         
 pyperclip.copy(salida)
-print 
+print('Ni hiy qui birlirsi dil qui piinsi distinti')
